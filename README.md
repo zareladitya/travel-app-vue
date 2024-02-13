@@ -36,3 +36,13 @@ npm run build
 ```sh
 npm run lint
 ```
+
+# Credits
+
+Made by :
+
+Azarel L. Aditya @zareladitya
+
+Ghazi A. Ghifari @reinaldia
+
+
