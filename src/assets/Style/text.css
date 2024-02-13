@@ -1,0 +1,94 @@
+@import '@/assets/base.css';
+
+/* text boldness - font weight  */
+.fw-100{
+    font-weight: 100;
+}
+.fw-200{
+    font-weight: 200;
+}
+.fw-300{
+    font-weight: 300;
+}
+.fw-400{
+    font-weight: 400;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-700{
+    font-weight: 700;
+}
+.fw-800{
+    font-weight: 800;
+}
+
+/* font size */
+.fs-title{
+    font-size: 35px;
+}
+.fs-sub-1{
+    font-size: 25px;
+}
+.fs-sub-2{
+    font-size: 20px;
+}
+
+.tc-primary{
+    color: var(--color-blue);
+}
+.tc-dark-blue{
+    color: var(--color-dark-blue);
+}
+.tc-black{
+    color: #000;
+}
+.tc-darkest-grey{
+    color: var(--color-darkest-grey);
+}
+.tc-dark-grey{
+    color: var(--color-dark-grey);
+}
+.tc-grey{
+    color: var(--color-grey);
+}
+.tc-white{
+    color: #fff;
+}
+.tc-red{
+    color: #e64f4f;
+}
+.tc-green{
+    color: var(--color-green);
+}
+.tc-brown{
+    color: var(--color-brown);
+}
+
+/* ri-icon sizes */
+.icon-10{
+    font-size: 10px;
+}
+.icon-20{
+    font-size: 20px;
+}
+.icon-25{
+    font-size: 25px;
+}
+.icon-30{
+    font-size: 30px;
+}
+
+/* Capitalization */
+.uppercase{
+    text-transform: uppercase;
+}
+.capitalize{
+    text-transform: capitalize;
+}
+.lowercase{
+    text-transform: lowercase;
+}

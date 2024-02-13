@@ -1,0 +1,60 @@
+:root{
+
+    --danger-text-emphasis: #58151c;
+    
+    /* Alert background-color styling */
+    --success-bg-subtle: #d1e7dd;
+    --info-bg-subtle: #cff4fc;
+    --warning-bg-subtle: #fff3cd;
+    --danger-bg-subtle: #f8d7da;
+    --light-bg-subtle: #fcfcfd;
+    --dark-bg-subtle: #ced4da;
+      /* Alert border styling */
+    --primary-border-subtle: #9ec5fe;
+    --secondary-border-subtle: #c4c8cb;
+    --success-border-subtle: #a3cfbb;
+    --info-border-subtle: #9eeaf9;
+    --warning-border-subtle: #ffe69c;
+    --danger-border-subtle: #f1aeb5; 
+    --light-border-subtle: #e9ecef;
+    --dark-border-subtle: #adb5bd;
+}
+
+.alert{
+    position: fixed;
+    z-index: 1000;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25rem;
+    height: fit-content;
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.alert__content {
+    display: flex;
+    flex-direction: column;
+    color: var(--danger-text-emphasis);
+}
+  
+.alert button {
+    background-color: transparent;
+    color: var(--danger-text-emphasis);
+    border: none;
+    cursor: pointer;
+}
+
+
+.alert-danger{
+    background-color: var(--danger-bg-subtle);
+    border: 1.5px solid var(--danger-border-subtle);
+}
+
+.alert-success{
+    background-color: var(--success-bg-subtle);
+    border: 1.5px solid var(--success-border-subtle);
+}

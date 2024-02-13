@@ -1,0 +1,20 @@
+[
+        {
+            "id" : 1,
+            "name" : "SMKN 4 Bandung",
+            "city" : "Jakarta",
+            "province" : "West Java",
+            "rating" : 5,
+            "tags" : [
+                "Luxury"
+            ],
+            "about" : "Set in the Mega Kuningan business district, this luxury hotel is 5.7 km from the Jakarta Convention Center and 7.3 km from the National Monument. The plush, warm rooms have floor-to-ceiling windows, 55-inch flat-screens and free Wi-Fi, along with minifridges; some have whirlpool tubs. Suites add sitting areas and marble bathrooms, and some have 24-hour butler service. Upgraded rooms and suites include free limo service, plus access to a club lounge with breakfast, snacks and cocktails. Dining options include an upscale restaurant, an Asian buffet eatery, and a bar with karaoke rooms. There's also a luxe spa, a pool and a jogging track.",
+            "url" : "./mountain-hero-image.jpg",
+            "price" : "1.799.000",
+            "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8d0aR5f4tO01lNQsefmqfJM3FKD6Y9cioEweggMLbyw&s",
+            "location" : "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7932.568471737452!2d106.81332508943018!3d-6.226205209455924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e53dc5171b%3A0x27a868ad3cd40c7d!2sThe%20Ritz-Carlton%20Jakarta!5e0!3m2!1sid!2sid!4v1705983892751!5m2!1sid!2sid",
+            "facilities ": [
+                "AC", "Restaurant", "Parking", "Pool", "Wifi", "Elevator"
+            ]
+        }
+    ]      
