@@ -41,8 +41,7 @@ npm run lint
 
 Made by :
 
-Azarel L. Aditya @zareladitya
-
-Ghazi A. Ghifari @reinaldia
+- [Azarel L. Aditya](https://github.com/zareladitya) (@zareladitya)
+- [Ghazi A. Ghifari](https://github.com/reinaldia) (@reinaldia)
 
 
