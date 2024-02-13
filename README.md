@@ -1,4 +1,7 @@
 # travel-vue
+Hi, my name is Azarel
+This is my attempt in making a travel web app using vue.js
+I took inspiration from travel website such as Traveloka and booking.com
 
 This template should help get you started developing with Vue 3 in Vite.
 
