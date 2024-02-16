@@ -29,10 +29,6 @@ const handleScroll = () => {
 const handleLogin = () => {
   console.log('Button clicked!');
 };
-const logout = () => {
-  user.value = null; // Clear user data
-  // Additional logout logic if needed
-};
 
 console.log('User : ' + userDataProfile.value);
   console.log('User name : ' + user.name);

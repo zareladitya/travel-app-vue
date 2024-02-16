@@ -4,6 +4,32 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 
+const destinationQuery = ref('');
+const destinationResult = ref([]);
+
+
+const loadDestinationData = () => {
+    fetch(`http://localhost:3000/get_data?search_query=${destinationQuery.value}`)
+    .then(response => response.json())
+    .then(data => {
+        destinationResult.value = data;
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+};
+
+const highlightDestination = (text) => {
+    const regex = new RegExp(`(${destinationQuery.value})`, 'gi');
+    return text.replace(regex, '<span class="text-primary fw-bold">$1</span>');
+};
+
+const getDestination = (locationsName) => {
+    destinationQuery.value = locationsName;
+    destinationResult.value = [];
+};
+
+
 const date = ref();
 const textInputOptions = {
   format: 'MM.dd.yyyy'
@@ -73,6 +99,7 @@ const closeDropdownOnClickOutside = (event) => {
 
 onMounted(() => {
   window.addEventListener('click', closeDropdownOnClickOutside);
+  loadDestinationData();
 });
 
 onUnmounted(() => {
@@ -91,7 +118,13 @@ onUnmounted(() => {
         <p>Guest & Rooms</p>
     </div>
     <div class="container__input-hotel flex row">
-        <input type="text" id="destination" placeholder="Enter destination...">
+        <input type="text" v-model="destinationQuery" placeholder="Enter Destination Location..." @input="loadDestinationData">
+                
+        <div v-if="destinationQuery.valueOf() !== ''">
+            <a href="#" v-for="result in destinationResult" :key="result.id" class="list-group-item list-group-item-action" @click="getDestination(result.country_name)">
+            <span v-html="highlightDestination(result.country_name)"></span>
+            </a>
+        </div>
         <VueDatePicker class="dp" v-model="date" range :partial-range="false" placeholder="Stay Date" :text-input="textInputOptions" :enable-time-picker="false"/>
         
         <div class="occupancy-dropdown">

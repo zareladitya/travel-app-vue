@@ -3,6 +3,54 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 
+const departureQuery = ref('');
+const destinationQuery = ref('');
+const departureResult = ref([]);
+const destinationResult = ref([]);
+
+const loadDepartureData = () => {
+    fetch(`http://localhost:3000/get_data?search_query=${departureQuery.value}`)
+    .then(response => response.json())
+    .then(data => {
+        departureResult.value = data;
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+};
+
+const highlightDeparture = (text) => {
+    const regex = new RegExp(`(${departureQuery.value})`, 'gi');
+    return text.replace(regex, '<span class="text-primary fw-bold">$1</span>');
+};
+
+const getDeparture = (locationsName) => {
+    departureQuery.value = locationsName;
+    departureResult.value = [];
+};
+
+const loadDestinationData = () => {
+    fetch(`http://localhost:3000/get_data?search_query=${destinationQuery.value}`)
+    .then(response => response.json())
+    .then(data => {
+        destinationResult.value = data;
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+};
+
+const highlightDestination = (text) => {
+    const regex = new RegExp(`(${destinationQuery.value})`, 'gi');
+    return text.replace(regex, '<span class="text-primary fw-bold">$1</span>');
+};
+
+const getDestination = (locationsName) => {
+    destinationQuery.value = locationsName;
+    searchResult.value = [];
+};
+
+
 const date = ref();
 const textInputOptions = {
   format: 'MM.dd.yyyy'
@@ -62,6 +110,9 @@ const closeAlert = () => {
 
 onMounted(() => {
   window.addEventListener('click', closeDropdownOnClickOutside);
+  loadDepartureData();
+  loadDestinationData();
+
 });
 
 onUnmounted(() => {
@@ -89,8 +140,21 @@ onUnmounted(() => {
         <p>Passengers</p>
     </div>
     <div class="container__input-bus-travel flex row">
-        <input type="text" id="destination" placeholder="Enter origin...">
-        <input type="text" id="destination" placeholder="Enter destination...">
+        <input type="text" v-model="departureQuery" placeholder="Enter Departure Location..." @input="loadDepartureData">
+                
+        <div v-if="departureQuery.valueOf() !== ''">
+            <a href="#" v-for="result in departureResult" :key="result.id" class="list-group-item list-group-item-action" @click="getDeparture(result.country_name)">                    
+            <span v-html="highlightDeparture(result.country_name)"></span>
+            </a>
+        </div>
+
+        <input type="text" v-model="destinationQuery" placeholder="Enter Destination Location..." @input="loadDestinationData">
+
+        <div v-if="destinationQuery.valueOf() !== ''">
+            <a href="#" v-for="result in destinationResult" :key="result.id" class="list-group-item list-group-item-action" @click="getDestination(result.country_name)">
+            <span v-html="highlightDestination(result.country_name)"></span>
+            </a>
+        </div>
         <VueDatePicker class="dp" v-model="date" range :partial-range="false" placeholder="Stay Date" :text-input="textInputOptions" :enable-time-picker="false"/>
         
         <div class="occupancy-dropdown">
