@@ -13,6 +13,7 @@ import IconElevator from '@/components/icons/IconElevator.vue';
 import IconNonSmoking from '@/components/icons/IconNonSmoking.vue';
 import IconSmoking from '@/components/icons/IconSmoking.vue';
 import IconBar from '@/components/icons/IconBar.vue';
+import RoomCardContainer from '@/components/RoomCardContainer.vue';
 import hotels from '@/data/hotels';
 import Navbar from '@/components/Navbar.vue';
 
@@ -20,16 +21,28 @@ const { id } = defineProps(['id']);
 const route = useRoute();
 
 const hotelId = parseInt(id || route.params.id, 10);
-
+const selectRoom = ref(false)
+const rooms = ref([]);
 
 const fetchHotelDetailsById = (id) => {
     const foundHotel = hotels.data.find(hotelItem => hotelItem.id === id);
     if (foundHotel) {
         hotel.value = { ...foundHotel, facilities: foundHotel.facilities || [] };
+        // Also include rooms data
+        rooms.value = foundHotel.rooms || [];
+        // Fetch sidebar facilities
+        const allFacilities = new Set();
+        foundHotel.rooms.forEach(room => {
+            room.facilities.forEach(facility => {
+                allFacilities.add(facility);
+            });
+        });
+        sidebarFacilities.value = Array.from(allFacilities);
     } else {
         console.error(`Hotel with ID ${id} not found.`);
     }
 };
+
 
 onMounted(() => {
     fetchHotelDetailsById(hotelId);
@@ -58,19 +71,35 @@ const getIconComponent = (facility) => {
   };
   return iconMappings[facility] || null;
 };
+const openSelectRoom = () => {
+  selectRoom.value = !selectRoom.value;
+};
+const sidebarFacilities = computed(() => {
+    const allFacilities = new Set();
+    rooms.value.forEach(room => {
+        room.facilities.forEach(facility => {
+            allFacilities.add(facility);
+        });
+    });
+    return Array.from(allFacilities);
+});
+
+
+
 </script>
+
 
 
 
 <template>
     <Navbar/>
-    <div class="hotel__details sm-4">
-      <div class="hotel__details-container">
-        <div class="hotel__details__image-gallery flex fd-row" id="gallery">
-            <div class="hotel__details__image-container">
+    <div class="hotel-details sm-4">
+      <div class="hotel-details-container">
+        <div class="hotel-details__image-gallery flex fd-row" id="gallery">
+            <div class="hotel-details__image-container">
                 <img :src="hotel.image">
             </div>
-            <div class="hotel__details-carousel flex fd-col">
+            <div class="hotel-details-carousel flex fd-col">
                 <img :src="image1">
                 <img :src="image2">
                 <img :src="image2">
@@ -82,41 +111,67 @@ const getIconComponent = (facility) => {
           </div>
         </div>
 
-        <div class="hotel__details-main">
+        <div class="hotel-details-main">
           <h1>{{ hotel.name }}</h1>
           <div class="hotel__rating-container flex">
               <StarRating/><p> {{ hotel.rating }}</p>
           </div>
-          <div class="hotel__details-order">
+          <div class="hotel-details-order">
             <h4 class="tc-black">Price/night starts at</h4>
-            <h2 class="home__recommendation__pricing  fw-600">Rp {{ hotel.price }}</h2>
+            <h2 class="hotel__recommendation__pricing  fw-600">Rp. {{ hotel.price }}</h2>
             <button class="hotel__recommendation__order-room fw-600">Select Room</button>
           </div>
-          <div class="hotel__details__facilities">
-              <div class="hotel__details__facilities-content">
+          <div class="hotel-details__facilities">
+              <div class="hotel-details__facilities-content">
                   <h4 class="tc-primary fw-600">Main Facilities</h4>
-                <div class="hotel__details__facilities-content-component">
+                <div class="hotel-details__facilities-content-component">
                     <p v-for="facility in hotelFacilities" :key="facility">
                         <component :is="getIconComponent(facility)" :width="20" class="icon-c-light-blue"/> {{ facility }}
                     </p>
                 </div>
             </div>
           </div>
-          
         </div>
 
-        <div class="hotel__details-content pd-2 flex fd-row">
-            <div class="hotel__details__location-container">
+        <div class="hotel-details-content pd-2 flex fd-row">
+            <div class="hotel-details__location-container">
                 <h4>Location</h4>
                 <iframe :src=hotel.location :width="300" :height="200" :style="'border: 0'"></iframe>
             </div>
-            <div class="hotel__details__about">
+            <div class="hotel-details__about">
               <h4>About</h4>
               <p>{{ hotel.about }}</p>
             </div>
         </div>
+    </div>
+    <section class="hotel-details__select-room pd-1 sm-top-1 w-full h-full">
+        <div class="hotel-details__select-room-container w-full h-full">
+            <h3 class="fw-600">Available Rooms Types in {{ hotel.name }}</h3>
+            <div class="hotel-details__room-card w-full sm-top-1">
+            <div class="w-full">
+                <h3 class="fw-600">Standard Suite</h3>
+            </div>
+                <RoomCardContainer
+                :rooms="rooms"
+                :sidebarImage="hotel.image"
+                :sidebarSize="hotels.data[0].rooms[0].size"
+                :sidebarFacilities="sidebarFacilities"
+            />
+            </div>
+            <div class="hotel-details__room-card w-full sm-top-1">
+                <h3 class="fw-600">Premium Suite</h3>
+                <RoomCardContainer
+                :rooms="rooms"
+                :sidebarImage="hotel.image"
+                :sidebarSize="hotels.data[0].rooms[0].size"
+                :sidebarFacilities="sidebarFacilities"
+            />
+            </div>
+        </div>
+    </section>
+   
+    
         
-      </div>
     </div>
 </template>
 
@@ -130,18 +185,15 @@ body {
     width: 10rem;
     height: 10rem;
 }
-.w-100{
-    width: 10rem;
-}
-.hotel__details p, 
-.hotel__details h1{
+
+.hotel-details h1{
     color: #000;
 }
 
-.hotel__details{
+.hotel-details{
     padding: 1rem 0;
 }
-.hotel__details-container{
+.hotel-details-container{
     position: relative;
     display: grid;
     grid-template-columns: 3fr 1fr; /* Two equal-width columns */
@@ -151,20 +203,20 @@ body {
 }
 
 
-.hotel__details-content{
+.hotel-details-content{
     grid-column: span 2;
     width: 100%;
 }
 
-.hotel__details__image-gallery {
+.hotel-details__image-gallery {
     position: relative;
     gap: 0.5rem;
 }
-.hotel__details__image-container{
+.hotel-details__image-container{
     width: 50rem;
     height: 27rem;
 }
-.hotel__details__image-container img{
+.hotel-details__image-container img{
     width: 100%;
     border-radius: 0.5rem;
     object-fit: cover;
@@ -172,12 +224,12 @@ body {
 
 }
 
-.hotel__details-carousel {
+.hotel-details-carousel {
     justify-content: space-between;
     gap: 0.5rem;
 }
 
-.hotel__details-carousel img {
+.hotel-details-carousel img {
   width: 10rem;
   height: 5rem;
   border-radius: 0.2rem;
@@ -185,7 +237,7 @@ body {
   cursor: pointer;
   position: relative;
 }
-.hotel__details-carousel img:last-child{
+.hotel-details-carousel img:last-child{
     filter: brightness(60%);
     position: relative;
 }
@@ -204,44 +256,44 @@ body {
     margin: 0 auto;
     left: 25%;
 }
-.hotel__details__location-container{
+.hotel-details__location-container{
     background-color: #fff;
 }
 
-.hotel__details-content,
-.hotel__details__facilities{
+.hotel-details-content,
+.hotel-details__facilities{
     background-color: #fff;
     padding: 0.5rem;
     border-radius: 0.5rem;
 }
 
-.hotel__details__facilities{
+.hotel-details__facilities{
     height: 14.5rem;
     padding: 1rem;
 }
 
-.hotel__details__facilities::-webkit-scrollbar{
+.hotel-details__facilities::-webkit-scrollbar{
     display: none;
 }
 
-.hotel__details__facilities-content h4 {
+.hotel-details__facilities-content h4 {
     margin-bottom: 0.2rem;
 }
 
-.hotel__details__facilities-content p{
+.hotel-details__facilities-content p{
     display: flex;
     gap: 0.5rem;
     align-items: center;
     margin: 0.1rem 0;
 }
 
-.hotel__details__facilities-content-component {
+.hotel-details__facilities-content-component {
     display: grid;
     grid-template-rows: repeat(6, 1fr);
     grid-auto-flow: column;
 
 }
-.hotel__details-main h1{
+.hotel-details-main h1{
     font-weight: 600;
     font-size: 25px;
 }
@@ -250,26 +302,26 @@ body {
     gap: 0.1rem;
 }
 
-.hotel__details-content p{
+.hotel-details-content p{
     font-size: 13px;
 }
 
-.hotel__details-content h4{
+.hotel-details-content h4{
     font-weight: 600;
     color: var(--color-blue);
     margin-bottom: 0.5rem;
 }
 
-.hotel__details-content{
+.hotel-details-content{
     gap: 1rem;
 }
 
-.hotel__details-order{
+.hotel-details-order{
     display: flex;
     flex-direction: column;
 }
 
-.hotel__details-order button{
+.hotel-details-order button{
     width: 100%;
     padding: 0.5rem 1rem;
     background-color: var(--color-orange);
@@ -282,31 +334,3 @@ body {
 
 
 </style>
-
-<script>
-
-// const gallery = ({
-//     el: "#gallery",
-//     mounted() {
-//         AOS.init();
-//     },
-//     data: {
-//         activePhoto : 0,
-//         photos : [
-//             {
-//                 id: 1,
-//                 url: "@/assets/images/mountain-hero-image.jpg"
-//             },
-//             {
-//                 id: 2,
-//                 url: "@/assets/images/car-in-a-beach.jpg"
-//             }
-//         ],
-//     },
-//     methods: {
-//         changeActive(id){
-//             this.activePhoto = id
-//         }
-//     }
-// });
-</script>

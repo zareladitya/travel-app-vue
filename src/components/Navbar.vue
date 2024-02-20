@@ -2,12 +2,14 @@
 import { RouterLink } from 'vue-router';
 import logo from '../assets/logo.vue'
 import userIcon from '../components/icons/IconUser.vue';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref, defineProps,  } from 'vue';
 import { user } from '@/data/userState'; 
 
 
 const navRef = ref(null);
 const isScrolled = ref(false);
+
+
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
@@ -28,17 +30,18 @@ const handleScroll = () => {
 const handleLogin = () => {
   console.log('Button clicked!');
 };
+
 </script>
 
 <template>
-    <nav :class="{ scrolled: isScrolled }" ref="navRef">
+    <nav :class="{ scrolled: isScrolled }" ref="navRef" >
         <div class="navbar" :class="{ scrolled_remove_line: isScrolled }" ref="navRef">
             <div class="navbar__logo" >
                 <RouterLink to="/">
                     <logo :width="150" class="nav-logo" :class="{ 'scrolled-logo': isScrolled }"/>
                 </RouterLink>
             </div>
-            <div class="navbar__navbar-links">
+            <div class="navbar__navbar-links" :style="{ color : textColor}">
                     <RouterLink to="/hotel">Hotel</RouterLink>   
                     <RouterLink to="/flights">Flights</RouterLink>       
                     <RouterLink to="/trains">Trains</RouterLink>   
@@ -46,7 +49,7 @@ const handleLogin = () => {
             </div>
             <div class="navbar__cta-container">
                 <div v-if="user" class="user">
-                    <RouterLink to="/profile" class="flex gap">
+                    <RouterLink to="/profile" class="flex gap" :style="{ color : textColor}" >
                         <i class="ri-user-3-fill tc-black"></i>
                         <p class="tc-black">Hi, <span class="fw-600  capitalize">{{ user }}</span></p>
                     </RouterLink>

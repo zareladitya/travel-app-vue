@@ -8,13 +8,28 @@
   flex-direction: row;
 }
 
+.w-full{
+  width: 100%;
+}
+.h-full{
+  height: 100%;
+}
+
 .align-center{
   align-items: center;
 }
 .justify-center{
   justify-content: center;
 }
-
+.justify-sb{
+  justify-content: space-between;
+}
+.pd\-\[0\.5\]{
+  padding: 0.5rem;
+}
+.pd-1{
+  padding: 1rem;
+}
 .pd-2{
   padding: 2rem;
 }
@@ -29,20 +44,23 @@
 }
 
 
+.pd-sd-1{
+  margin: 0 1rem ;
+}
 .pd-sd-2{
-  margin: 2rem 0;
+  margin: 0 2rem ;
 }
 .pd-sd-4{
-  margin:  4rem 0;
+  margin:  0 4rem ;
 }
 .pd-sd-6{
-  margin: 6rem 0;
+  margin: 0 6rem ;
 }
 .pd-sd-8{
-  margin: 8rem 0;
+  margin: 0 8rem ;
 }
 .pd-sd-10{
-  margin: 10rem 0;
+  margin: 0 10rem;
 }
 
 
@@ -59,13 +77,22 @@
   padding: 8rem 0 0 0;
 }
 
+/* section margin  */
 .section__margin{
   margin: 2rem;
+}
+.sm-1{
+  margin: 1rem;
 }
 .sm-4{
   margin: 4rem;
 }
 
+/* section margin side (left & right) */
+.sm-sd-0{
+  margin-left: 0;
+  margin-right: 0;
+}
 .sm-sd-2{
   margin: 0 2rem;
 }
@@ -81,7 +108,7 @@
 .sm-sd-10{
   margin: 0 10rem;
 }
-
+/* section margin top */
 .sm-top-1{
   margin-top:1rem ;
 }
@@ -103,7 +130,39 @@
 .sm-top-12 {
   margin-top:12rem;
 }
+/* section margin bottom */
+.sm-bottom-1{
+  margin-bottom:1rem ;
+}
+.sm-bottom-2{
+  margin-bottom:2rem ;
+}
+.sm-bottom-4{
+  margin-bottom:4rem ;
+}
+.sm-bottom-6{
+  margin-bottom:6rem;
+}
+.sm-bottom-8{
+  margin-bottom:8rem ;
+}
+.sm-bottom-10{
+  margin-bottom:10rem;
+}
+.sm-bottom-12 {
+  margin-bottom:12rem;
+}
 
+.sm-right-\[0\.5\]{
+  margin-right: 0.5rem;
+}
+.sm-right-1{
+  margin-right: 1rem;
+}
+/* position */
+.sticky{
+  position: sticky;
+}
 .relative{
     position: relative;
 }
@@ -111,9 +170,14 @@
     position: absolute;
 }
 
-.gap{
+/* gap */
+.gap\[0\.5\]{
   gap: 0.5rem;
 }
 .gap-1{
   gap: 1rem;
+}
+
+.top-5{
+  top: 5rem;
 }

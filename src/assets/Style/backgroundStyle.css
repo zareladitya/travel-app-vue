@@ -1,5 +1,17 @@
+.bg-lightest-grey{
+    background-color: var(--color-lightest-grey);
+}
+.bg-lighter-blue{
+    background-color: var(--color-lighter-blue);
+}
+.bg-light-blue{
+    background-color: var(--color-light-blue);
+}
 .bg-blue{
     background-color: var(--color-blue);
+}
+.bg-darker-blue{
+    background-color: var(--color-darker-blue);
 }
 .bg-grey{
     background-color: var(--color-grey);
@@ -9,6 +21,12 @@
 }
 .bg-red{
     background-color: var(--color-red);
+}
+.bg-bright-orange{
+    background-color: var(--color-bright-orange);
+}
+.bg-orange{
+    background-color: var(--color-orange);
 }
 .bg-brown{
     background-color: var(--color-brown);

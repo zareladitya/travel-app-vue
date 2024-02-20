@@ -25,7 +25,17 @@ var location = ({
                 "AC", "Restaurant", "Parking", "Pool", "Wifi", "Elevator"
             ],
             shortDesc : "Jakarta stands as a bustling metropolis that has captivated travelers for generations. With its dynamic blend of modernity and tradition, this vibrant city offers a kaleidoscope of experiences for every type of explorer",
-            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in."
+            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in.",
+            mustTry : [
+                "Dufan Ancol", "Wingheng", "PIK 2 Beach", "Jakarta Aquarium", "Cafe"
+            ],
+            mustTryImage : [
+                "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1108,h_739,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ttcseti5bdmc2popeanz/OrchidForestCikoleTicketinLembangBandung-KlookUnitedKingdom.jpg", 
+                "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
+                "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1108,h_739,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ttcseti5bdmc2popeanz/OrchidForestCikoleTicketinLembangBandung-KlookUnitedKingdom.jpg", 
+                "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
+                "https://www.thetimes.co.uk/travel/wp-content/uploads/sites/6/2021/05/New_Chidorigafuchi-Park-Tokyo_Credit_GettyImages-1148634785.jpg?w=2200&h=880&crop=1"
+            ],
         },
         {
             id : 2,
@@ -48,7 +58,19 @@ var location = ({
                 "AC", "Parking", "Wifi", "Elevator"
             ],
             shortDesc : "Tokyo is the capital city of Japan that is vibrant with numerous tourist attractions, like shopping areas, museums, amusement parks, and royal palaces in some of its districts. Being a metropolitan area, Tokyo is one of the cities which has a large number of visiting tourists compared to any other region in Japan.",
-            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in."
+            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in.",
+            shortDesc : "Jakarta stands as a bustling metropolis that has captivated travelers for generations. With its dynamic blend of modernity and tradition, this vibrant city offers a kaleidoscope of experiences for every type of explorer",
+            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in.",
+            mustTry : [
+                "Dufan Ancol", "Wingheng", "PIK 2 Beach", "Jakarta Aquarium", "Cafe"
+            ],
+            mustTryImage : [
+                "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1108,h_739,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ttcseti5bdmc2popeanz/OrchidForestCikoleTicketinLembangBandung-KlookUnitedKingdom.jpg", 
+                "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
+                "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1108,h_739,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ttcseti5bdmc2popeanz/OrchidForestCikoleTicketinLembangBandung-KlookUnitedKingdom.jpg", 
+                "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
+                "https://www.thetimes.co.uk/travel/wp-content/uploads/sites/6/2021/05/New_Chidorigafuchi-Park-Tokyo_Credit_GettyImages-1148634785.jpg?w=2200&h=880&crop=1"
+            ],
         },
         {
             id : 3,
@@ -71,7 +93,19 @@ var location = ({
                 "Parking", "Smoking"
             ],
             shortDesc : "Bali has remained as one of the world's top island destinations for decades and it's easy to see why. From white sand beaches to a thriving nightlife, this tropical paradise has something for every kind of traveler.",
-            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in."
+            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in.",
+            shortDesc : "Jakarta stands as a bustling metropolis that has captivated travelers for generations. With its dynamic blend of modernity and tradition, this vibrant city offers a kaleidoscope of experiences for every type of explorer",
+            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in.",
+            mustTry : [
+                "Dufan Ancol", "Wingheng", "PIK 2 Beach", "Jakarta Aquarium", "Cafe"
+            ],
+            mustTryImage : [
+                "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1108,h_739,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ttcseti5bdmc2popeanz/OrchidForestCikoleTicketinLembangBandung-KlookUnitedKingdom.jpg", 
+                "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
+                "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1108,h_739,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ttcseti5bdmc2popeanz/OrchidForestCikoleTicketinLembangBandung-KlookUnitedKingdom.jpg", 
+                "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
+                "https://www.thetimes.co.uk/travel/wp-content/uploads/sites/6/2021/05/New_Chidorigafuchi-Park-Tokyo_Credit_GettyImages-1148634785.jpg?w=2200&h=880&crop=1"
+            ],
 
         },
         {
@@ -95,7 +129,19 @@ var location = ({
                 "AC", "Restaurant", "Parking", "Pool", "Wifi", "Elevator", "NoSmoking"
             ],
             shortDesc : "Bali has remained as one of the world's top island destinations for decades and it's easy to see why. From white sand beaches to a thriving nightlife, this tropical paradise has something for every kind of traveler.",
-            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in."
+            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in.",
+            shortDesc : "Jakarta stands as a bustling metropolis that has captivated travelers for generations. With its dynamic blend of modernity and tradition, this vibrant city offers a kaleidoscope of experiences for every type of explorer",
+            fullDesc : "The seaside temple of Tanah Lot, cascading rice terraces of Ubud, and black volcanic beach of Amed are only some of the beautiful views that can be found there. Diving spots at Tulamben and Nusa Penida also offer a glimpse of the vibrant marine life encircling the island. Nature aside, Bali is also known for its delicious food, ranging from beachside seafood stalls to world-class fine dining restaurants. The island is constantly changing, with new constructions at every corner and hordes of tourists from across the globe. Yet, the Balinese spirit — reflected in the locals' genuine warmth and Hindunese spirituality — keeps it as one of the most alluring places to lose yourself in.",
+            mustTry : [
+                "Dufan Ancol", "Wingheng", "PIK 2 Beach", "Jakarta Aquarium", "Cafe"
+            ],
+            mustTryImage : [
+                "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1108,h_739,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ttcseti5bdmc2popeanz/OrchidForestCikoleTicketinLembangBandung-KlookUnitedKingdom.jpg", 
+                "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
+                "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1108,h_739,f_auto/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ttcseti5bdmc2popeanz/OrchidForestCikoleTicketinLembangBandung-KlookUnitedKingdom.jpg", 
+                "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg",
+                "https://www.thetimes.co.uk/travel/wp-content/uploads/sites/6/2021/05/New_Chidorigafuchi-Park-Tokyo_Credit_GettyImages-1148634785.jpg?w=2200&h=880&crop=1"
+            ],
 
         },
         

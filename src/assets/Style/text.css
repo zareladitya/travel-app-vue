@@ -37,6 +37,7 @@
     font-size: 20px;
 }
 
+/* font color */
 .tc-primary{
     color: var(--color-blue);
 }
@@ -58,8 +59,11 @@
 .tc-white{
     color: #fff;
 }
+.tc-orange{
+    color: var(--color-orange);
+}
 .tc-red{
-    color: #e64f4f;
+    color: var(--color-red);
 }
 .tc-green{
     color: var(--color-green);
@@ -68,6 +72,50 @@
     color: var(--color-brown);
 }
 
+/* font size */
+.fs-10{
+    font-size: 10px;
+}
+.fs-15{
+    font-size: 15px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.fs-25{
+    font-size: 25px;
+}
+.fs-30{
+    font-size: 30px;
+}
+
+.fs-0\.5\rem{
+    font-size: 0.5rem;
+}
+.fs-0\.6\rem{
+    font-size: 0.6rem;
+}
+.fs-0\.7\rem{
+    font-size: 0.8rem;
+}
+.fs-0\.8\rem{
+    font-size: 0.8rem;
+}
+.fs-0\.9\rem{
+    font-size: 0.9rem;
+}
+.fs-1rem{
+    font-size: 1rem;
+}
+.fs-1\.5\rem{
+    font-size: 1.5rem;
+}
+.fs-2rem{
+    font-size: 2rem;
+}
+.fs-3rem{
+    font-size: 3rem;
+}
 /* ri-icon sizes */
 .icon-10{
     font-size: 10px;
@@ -91,4 +139,8 @@
 }
 .lowercase{
     text-transform: lowercase;
+}
+
+.strike-through{
+    text-decoration: line-through;
 }
