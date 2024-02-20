@@ -1,4 +1,3 @@
-
 <template>
   <div v-if="showAlert" :class="['custom-alert', 'alert-' + alertType]">
     <p>{{ message }}</p>
@@ -7,25 +6,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 const alertData = ref({
   title: null,
   message: null,
-  type: null,
-});
+  type: null
+})
 
 const showAlert = (title, message, type) => {
-  alertData.value = { title, message, type };
-};
+  alertData.value = { title, message, type }
+}
 
 const closeAlert = () => {
-  alertData.value = { title: null, message: null, type: null };
-};
+  alertData.value = { title: null, message: null, type: null }
+}
 
 const hideAlert = () => {
-  alertData.value = { title: null, message: null, type: null };
-};
+  alertData.value = { title: null, message: null, type: null }
+}
 </script>
 
 <style scoped>

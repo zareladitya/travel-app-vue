@@ -1,23 +1,22 @@
 <script setup>
-import { ref } from 'vue';
-import { RouterLink, RouterView } from 'vue-router';
+import { ref, computed } from 'vue'
+import { RouterLink } from 'vue-router'
 
-import image from '@/assets/images/mountain-hero-image.jpg';
-import IconArrowRight from "@/components/icons/IconArrowRight.vue";
-import IconStar from './icons/IconStar.vue';
-import StarRating from './StarRating.vue';
-import HotelDetail from '@/views/HotelDetail.vue';
-import hotels from '@/data/hotels.js';
+import IconArrowRight from '@/components/icons/IconArrowRight.vue'
+import IconStar from './icons/IconStar.vue'
+import hotels from '@/data/hotels.js'
 
-let hotel = ref(hotels.data[0] || {});
-const activeButton = ref(0);
+const activeButton = ref(0)
 const setActiveButton = (index) => {
-  activeButton.value = index;
-};
+  activeButton.value = index
+}
 
+const displayedHotels = computed(() => {
+  return hotels.data.slice(0, 4)
+})
 </script>
 <template>
-<div class="home__recommendation">
+  <div class="home__recommendation">
     <div class="home__recommendation__btn-container">
       <button
         v-for="(btn, index) in ['West Java', 'East Java', 'Bali', 'More']"
@@ -31,51 +30,49 @@ const setActiveButton = (index) => {
 
     <div class="home__recommendation__cards-container">
       <div
-        v-for="hotelItem in hotels.data"
+        v-for="hotelItem in displayedHotels"
         :key="hotelItem.id"
         class="home__recommendation__card"
         :id="hotelItem.id"
       >
-          <div class="home__recommendation__card__upper-location">
-            <p>{{ hotelItem.city }}</p>
+        <div class="home__recommendation__card__upper-location">
+          <p>{{ hotelItem.city }}</p>
+        </div>
+        <RouterLink :to="{ name: 'hotel-details', params: { id: hotelItem.id } }">
+          <img :src="hotelItem.image" alt="Hotel Image" />
+        </RouterLink>
+        <div class="home__recommendation__card-content">
+          <h4>{{ hotelItem.name }}</h4>
+          <div class="home__recommendation__rating">
+            <p><IconStar :width="20" />{{ hotelItem.rating }} / 5</p>
           </div>
-          <RouterLink :to="{ name: 'hotel-details', params: { id: hotelItem.id } }">
-            <img :src=" hotelItem.image" alt="Hotel Image">
-          </RouterLink>
-          <div class="home__recommendation__card-content">
-            <h4>{{ hotelItem.name }}</h4>
-            <div class="home__recommendation__rating">
-              <p><IconStar :width="20"/>{{ hotelItem.rating }} / 5 </p>
+          <p class="home__recommendation__pricing">Rp {{ hotelItem.price }}</p>
+          <div class="home__recomendation-tags flex fd-row">
+            <div v-for="(tags, index) in hotelItem.tags" :key="index">
+              <p>{{ tags }}</p>
             </div>
-            <p class="home__recommendation__pricing">Rp {{ hotelItem.price }}</p>
-            <div class="home__recomendation-tags flex fd-row">
-              <div v-for="(tags, index) in hotelItem.tags" :key="index">
-                <p>{{ tags }}</p>
-                </div>
-            </div>
-            </div>
+          </div>
         </div>
       </div>
-
+    </div>
 
     <div class="home__recommendation__see-more-btn">
-        <button>See All<IconArrowRight :width="20"/></button>
+      <button>See All<IconArrowRight :width="20" /></button>
     </div>
-</div>
+  </div>
 </template>
 
-
 <style scoped>
-.home__recommendation a{
+.home__recommendation a {
   padding: 0;
 }
-.home__recommendation h4{
+.home__recommendation h4 {
   font-size: 20px;
 }
 
-.home__recommendation h4, p{
-    color: #000;
-    
+.home__recommendation h4,
+p {
+  color: #000;
 }
 
 .home__recommendation {
@@ -96,7 +93,6 @@ const setActiveButton = (index) => {
   padding: 0.5rem 1rem;
   border-radius: 1.5rem;
   font-weight: 600;
-  
 }
 .home__recommendation-btn-active {
   background-color: #3498db;
@@ -129,9 +125,8 @@ const setActiveButton = (index) => {
   border-radius: 6px 0 6px 0;
 }
 
-.home__recommendation__card__upper-location p{
+.home__recommendation__card__upper-location p {
   color: #fff;
-
 }
 
 .home__recommendation__card img {
@@ -145,7 +140,7 @@ const setActiveButton = (index) => {
 .home__recommendation__card img:hover {
   filter: brightness(80%);
 }
-.home__recommendation__card a:hover{
+.home__recommendation__card a:hover {
   color: transparent;
   background-color: transparent;
 }
@@ -156,38 +151,37 @@ const setActiveButton = (index) => {
   position: relative;
 }
 
-.home__recommendation__rating{
+.home__recommendation__rating {
   margin: 0.2rem 0;
   fill: var(--color-orange);
-  
 }
-.home__recommendation__rating p{
+.home__recommendation__rating p {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.2rem;
 }
-.home__recommendation__pricing{
+.home__recommendation__pricing {
   color: var(--color-orange);
   margin-bottom: 0.4rem;
 }
-.home__recomendation-tags{
+.home__recomendation-tags {
   gap: 0.5rem;
   flex-wrap: wrap;
 }
-.home__recomendation-tags p{
+.home__recomendation-tags p {
   background-color: var(--color-blue);
   color: #fff;
   padding: 0.2rem 0.5rem;
   border-radius: 0.4rem;
 }
-.home__recommendation__see-more-btn{
+.home__recommendation__see-more-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
-.home__recommendation__see-more-btn button{
+.home__recommendation__see-more-btn button {
   padding: 0.5rem 2rem;
   border: 0;
   border-radius: 0.2rem;
@@ -202,6 +196,4 @@ const setActiveButton = (index) => {
 }
 </style>
 
-<script>
-
-</script>
+<script></script>

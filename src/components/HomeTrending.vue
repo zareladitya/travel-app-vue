@@ -1,26 +1,31 @@
 <script setup>
-import {ref, onMounted} from 'vue'
-import image from '@/assets/images/mountain-hero-image.jpg'
+import { ref } from 'vue'
 import trending from '@/data/trending'
 
-const trendingData = ref(trending);
-
+const trendingData = ref(trending)
 </script>
 <template>
-    <div class="home__trending__container">
-        <div v-for="(item, index) in trendingData.data" :key="index" class="home__trending__card" :id="item.id">
-            <router-link :to="`/trending/id=${item.id}/${item.city}`" class="router-link-overlay"></router-link>
-            <img :src="item.image[0]" alt="gambar">
-            <div class="home__trending__card-content">
-                <h3>{{ item.name }}</h3>
-                <p>{{ item.city }}, {{ item.country }}</p>
-            </div>
-        </div>
+  <div class="home__trending__container">
+    <div
+      v-for="(item, index) in trendingData.data.slice(0, 6)"
+      :key="index"
+      class="home__trending__card"
+      :id="item.id"
+    >
+      <router-link
+        :to="`/trending/id=${item.id}/${item.city}`"
+        class="router-link-overlay"
+      ></router-link>
+      <img :src="item.image[0]" alt="gambar" />
+      <div class="home__trending__card-content">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.city }}, {{ item.country }}</p>
+      </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
-
 a.router-link-overlay {
   position: absolute;
   top: 0;
@@ -29,9 +34,9 @@ a.router-link-overlay {
   height: 100%;
   z-index: 10;
 }
-.home__trending__container h3{
-    color: #fff;
-    font-weight: 600;
+.home__trending__container h3 {
+  color: #fff;
+  font-weight: 600;
 }
 .home__trending__container {
   display: flex;
@@ -51,15 +56,15 @@ a.router-link-overlay {
 }
 
 .home__trending__card::before {
-    content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 100%);
-    z-index: 1;
-    border-radius: 0.5rem;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 1;
+  border-radius: 0.5rem;
 }
 
 .home__trending__card img {
@@ -78,7 +83,7 @@ a.router-link-overlay {
 }
 
 .home__trending__card-content p {
-    color: #fff;
+  color: #fff;
 }
 
 .home__trending__card:hover {

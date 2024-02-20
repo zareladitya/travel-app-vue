@@ -26,33 +26,33 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path : '/login',
-      name : 'login',
-      component : () => import('../views/LoginRegister.vue')
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginRegister.vue')
     },
     {
-      path : '/profile',
-      name : 'profile',
-      component : () => import('../views/UserProfile.vue')
+      path: '/profile',
+      name: 'profile',
+      component: () => import('../views/UserProfile.vue')
     },
     {
-      path : '/location/id=:id/:name',
-      name : 'location',
-      component : LocationView,
+      path: '/location/id=:id/:name',
+      name: 'location',
+      component: LocationView,
       props: true
     },
     {
-      path : '/trending/id=:id/:name',
-      name : 'trending',
-      component : TrendingView,
+      path: '/trending/id=:id/:name',
+      name: 'trending',
+      component: TrendingView,
       props: true
     },
     {
       path: '/hotel/id=:id',
       name: 'hotel-details',
       component: HotelDetail,
-      props : true
-    },
+      props: true
+    }
   ]
 })
 

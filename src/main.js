@@ -4,7 +4,6 @@ import './assets/style/text.css'
 import './assets/Style/alert.css'
 import './assets/Style/backgroundStyle.css'
 
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
