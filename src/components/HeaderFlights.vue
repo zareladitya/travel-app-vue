@@ -47,7 +47,7 @@ const highlightDestination = (text) => {
 
 const getDestination = (locationsName) => {
     destinationQuery.value = locationsName;
-    searchResult.value = [];
+    destinationResult.value = [];
 };
 
 const adultCount = ref(1); // Set your initial value
@@ -226,8 +226,8 @@ onUnmounted(() => {
                 <input type="text" v-model="departureQuery" placeholder="Enter Departure Location..." @input="loadDepartureData">
                 
                 <div v-if="departureQuery.valueOf() !== ''">
-                    <a href="#" v-for="result in departureResult" :key="result.id" class="list-group-item list-group-item-action" @click="getDeparture(result.country_name)">
-                    <span v-html="highlightDeparture(result.country_name)"></span>
+                    <a href="#" v-for="result in departureResult" :key="result.id" class="list-group-item list-group-item-action" @click="getDeparture(result.location_name)">
+                    <span v-html="highlightDeparture(result.location_name)"></span>
                     </a>
                 </div>
             </div>
@@ -236,8 +236,8 @@ onUnmounted(() => {
                 <input type="text" v-model="destinationQuery" placeholder="Enter Destination Location..." @input="loadDestinationData">
                 
                 <div v-if="destinationQuery.valueOf() !== ''">
-                    <a href="#" v-for="result in destinationResult" :key="result.id" class="list-group-item list-group-item-action" @click="getDestination(result.country_name)">
-                    <span v-html="highlightDestination(result.country_name)"></span>
+                    <a href="#" v-for="result in destinationResult" :key="result.id" class="list-group-item list-group-item-action" @click="getDestination(result.location_name)">
+                    <span v-html="highlightDestination(result.location_name)"></span>
                     </a>
                 </div> 
             </div>
