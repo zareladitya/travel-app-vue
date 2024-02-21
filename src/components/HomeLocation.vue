@@ -49,10 +49,10 @@ a {
   object-fit: cover;
   border-radius: 0.5rem;
   background: linear-gradient(180deg, #00000033 0%, #ffffff00 100%);
-  filter: brightness(90%);
+  filter: brightness(75%);
   transition: all 400ms ease;
 }
-.gradient-mask:hover + img {
+.left-to-right-gradient-mask:hover + img {
   filter: brightness(100%);
 }
 

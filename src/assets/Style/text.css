@@ -41,8 +41,20 @@
 .tc-primary{
     color: var(--color-blue);
 }
+.tc-darker-blue{
+    color: var(--color-darker-blue);
+}
 .tc-dark-blue{
     color: var(--color-dark-blue);
+}
+.tc-blue{
+    color: var(--color-blue);
+}
+.tc-light-blue{
+    color: var(--color-light-blue);
+}
+.tc-lighter-blue{
+    color: var(--color-lighter-blue);
 }
 .tc-black{
     color: #000;
@@ -55,6 +67,12 @@
 }
 .tc-grey{
     color: var(--color-grey);
+}
+.tc-light-grey{
+    color: var(--color-light-grey);
+}
+.tc-lightest-grey{
+    color: var(--color-lightest-grey);
 }
 .tc-white{
     color: #fff;

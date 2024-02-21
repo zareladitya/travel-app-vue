@@ -12,7 +12,12 @@ const setActiveButton = (index) => {
 }
 
 const displayedHotels = computed(() => {
-  return hotels.data.slice(0, 4)
+  const province = ['West Java', 'East Java', 'Bali', 'More'][activeButton.value]
+  if (province === 'More') {
+    return hotels.data.slice(0, 4) // Or whatever default behavior you want for 'More'
+  } else {
+    return hotels.data.filter(hotel => hotel.province === province).slice(0, 4)
+  }
 })
 </script>
 <template>
@@ -195,5 +200,3 @@ p {
   gap: 0.1rem;
 }
 </style>
-
-<script></script>
