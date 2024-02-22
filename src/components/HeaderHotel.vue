@@ -102,7 +102,8 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('click', closeDropdownOnClickOutside)
-})
+});
+
 </script>
 
 <template>
