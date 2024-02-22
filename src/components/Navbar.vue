@@ -71,8 +71,8 @@ const handleLogin = () => {
 .scrolled-logo {
   fill: #000;
 }
-.navbar__navbar-links a {
-  color: #000;
+.navbar__navbar-links a{
+    color: #000;
 }
 a:hover {
   background-color: transparent;

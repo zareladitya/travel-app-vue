@@ -68,12 +68,6 @@
 .tc-grey{
     color: var(--color-grey);
 }
-.tc-light-grey{
-    color: var(--color-light-grey);
-}
-.tc-lightest-grey{
-    color: var(--color-lightest-grey);
-}
 .tc-white{
     color: #fff;
 }

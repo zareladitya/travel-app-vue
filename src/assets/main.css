@@ -11,7 +11,15 @@ a,
   text-decoration: none;
   color: var(--color-blue);
   transition: 0.4s;
-  padding: 3px;
+}
+
+a.router-link-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 
 .icon-c-light-blue{
@@ -39,6 +47,7 @@ a,
 .hotel-blue{
   fill: var(--color-blue);
 }
+
 
 /* image blur effect */
 /* top to bottom version */

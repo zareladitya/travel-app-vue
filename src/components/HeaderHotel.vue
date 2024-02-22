@@ -9,25 +9,20 @@ const destinationResult = ref([])
 const isLocationDropdownOpen = ref(false)
 
 const loadDestinationData = () => {
-  isLocationDropdownOpen.value = true
-
-  fetch(`http://localhost:3000/get_locations?search_query=${destinationQuery.value}`)
-    .then((response) => response.json())
-    .then((data) => {
-      destinationResult.value = data
-      isLocationDropdownOpen.value = data.length > 0
+    fetch(`http://localhost:3000/get_data?search_query=${destinationQuery.value}`)
+    .then(response => response.json())
+    .then(data => {
+        destinationResult.value = data;
     })
-    .catch((error) => {
-      console.error('Error fetching data:', error)
-      isLocationDropdownOpen.value = false
-    })
-}
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+};
 
 const highlightDestination = (text) => {
-  console.log(destinationResult.value)
-  const regex = new RegExp(`(${destinationQuery.value})`, 'gi')
-  return text.replace(regex, `<span class="fw-600">$1</span>`)
-}
+    const regex = new RegExp(`(${destinationQuery.value})`, 'gi');
+    return text.replace(regex, '<span class="text-primary fw-bold">$1</span>');
+};
 
 const getDestination = (locationsName) => {
   destinationQuery.value = locationsName
@@ -101,9 +96,9 @@ const closeDropdownOnClickOutside = (event) => {
 }
 
 onMounted(() => {
-  window.addEventListener('click', closeDropdownOnClickOutside)
-  loadDestinationData()
-})
+  window.addEventListener('click', closeDropdownOnClickOutside);
+  loadDestinationData();
+});
 
 onUnmounted(() => {
   window.removeEventListener('click', closeDropdownOnClickOutside)

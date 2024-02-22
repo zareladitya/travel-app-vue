@@ -40,26 +40,26 @@ const displayedHotels = computed(() => {
         class="home__recommendation__card"
         :id="hotelItem.id"
       >
-        <div class="home__recommendation__card__upper-location">
-          <p>{{ hotelItem.city }}</p>
-        </div>
-        <RouterLink :to="{ name: 'hotel-details', params: { id: hotelItem.id } }">
-          <img :src="hotelItem.image" alt="Hotel Image" />
-        </RouterLink>
-        <div class="home__recommendation__card-content">
-          <h4>{{ hotelItem.name }}</h4>
-          <div class="home__recommendation__rating">
-            <p><IconStar :width="20" />{{ hotelItem.rating }} / 5</p>
+          <div class="home__recommendation__card__upper-location">
+            <p>{{ hotelItem.city }}</p>
           </div>
-          <p class="home__recommendation__pricing">Rp {{ hotelItem.price }}</p>
-          <div class="home__recomendation-tags flex fd-row">
-            <div v-for="(tags, index) in hotelItem.tags" :key="index">
-              <p>{{ tags }}</p>
+          <RouterLink :to="{ name: 'hotel-details', params: { id: hotelItem.id } }">
+            <img :src=" hotelItem.image" alt="Hotel Image">
+          </RouterLink>
+          <div class="home__recommendation__card-content">
+            <h4>{{ hotelItem.name }}</h4>
+            <div class="home__recommendation__rating">
+              <p><IconStar :width="20"/>{{ hotelItem.rating }} / 5 </p>
             </div>
-          </div>
+            <p class="home__recommendation__pricing">Rp {{ hotelItem.price }}</p>
+            <div class="home__recomendation-tags flex fd-row">
+              <div v-for="(tags, index) in hotelItem.tags" :key="index">
+                <p>{{ tags }}</p>
+                </div>
+            </div>
+            </div>
         </div>
       </div>
-    </div>
 
     <div class="home__recommendation__see-more-btn">
       <button>See All<IconArrowRight :width="20" /></button>
