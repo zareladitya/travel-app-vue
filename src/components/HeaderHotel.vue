@@ -111,13 +111,14 @@ const closeDropdownOnClickOutside = (event) => {
 }
 
 onMounted(() => {
-  window.addEventListener('click', closeDropdownOnClickOutside)
-  loadDestinationData()
-})
+  window.addEventListener('click', closeDropdownOnClickOutside);
+  loadDestinationData();
+});
 
 onUnmounted(() => {
   window.removeEventListener('click', closeDropdownOnClickOutside)
-})
+});
+
 </script>
 
 <template>

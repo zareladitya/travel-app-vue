@@ -10,6 +10,9 @@
 .bg-blue{
     background-color: var(--color-blue);
 }
+.bg-dark-blue{
+    background-color: var(--color-dark-blue);
+}
 .bg-darker-blue{
     background-color: var(--color-darker-blue);
 }

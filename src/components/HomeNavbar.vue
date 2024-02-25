@@ -70,15 +70,16 @@ console.log('User : ' + user.value)
 </template>
 
 <style lang="css">
-.white {
-  fill: #fff;
-  color: #fff;
+
+.white{
+    fill: #fff;
+    color: #fff;
 }
 .scrolled-logo {
   fill: #000;
 }
-a {
-  color: var(--vt-c-white);
+a{
+    color: var(--vt-c-white);
 }
 a:hover {
   background-color: transparent;
