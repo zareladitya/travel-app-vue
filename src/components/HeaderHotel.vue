@@ -9,24 +9,34 @@ const destinationResult = ref([])
 const isLocationDropdownOpen = ref(false)
 
 const loadDestinationData = () => {
-  isLocationDropdownOpen.value = true
+  if (destinationQuery.value.trim() !== '') {
+    isLocationDropdownOpen.value = true
 
-  fetch(`http://localhost:3000/get_locations?search_query=${destinationQuery.value}`)
-    .then((response) => response.json())
-    .then((data) => {
-      destinationResult.value = data
-      isLocationDropdownOpen.value = data.length > 0
-    })
-    .catch((error) => {
-      console.error('Error fetching data:', error)
-      isLocationDropdownOpen.value = false
-    })
+    fetch(`http://localhost:3000/get_locations?search_query=${encodeURIComponent(destinationQuery.value.trim())}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch locations')
+        }
+        return response.json()
+      })
+      .then((data) => {
+        destinationResult.value = data
+        isLocationDropdownOpen.value = data.length > 0
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error)
+        isLocationDropdownOpen.value = false
+      })
+  } else {
+    destinationResult.value = []
+    isLocationDropdownOpen.value = false
+  }
 }
 
-const highlightDestination = (text) => {
-  console.log(destinationResult.value)
+const highlightDestination = (text, applyfw) => {
+  const fw = applyfw ? 'fw-600' : ''
   const regex = new RegExp(`(${destinationQuery.value})`, 'gi')
-  return text.replace(regex, `<span class="fw-600">$1</span>`)
+  return text.replace(regex, `<span class="tc-light-blue ${fw}">$1</span>`)
 }
 
 const getDestination = (locationsName) => {
@@ -132,16 +142,18 @@ onUnmounted(() => {
             :key="result.id"
             class="hotel__destination__result"
           >
-            <div class="hotel__destination_location-name">
+            <div class="hotel__destination__location-name">
               <span
                 v-if="result.location_name"
-                v-html="highlightDestination(result.location_name)"
-                class="tc-black"
+                v-html="highlightDestination(result.location_name, true)"
+                class="tc-black fw-600 destination__location-name"
                 @click="getDestination(result.location_name)"
               ></span>
-              <p class="tc-black">
-                {{ result.desc_name }}
-              </p>
+              <span
+                v-if="result.location_name"
+                v-html="highlightDestination(result.desc_name, false)"
+                class="tc-black destination__location-desc"
+              ></span>
             </div>
             <span class="hotel__destination__location-tags tc-lighter-blue">{{ result.tags }}</span>
           </div>
@@ -337,8 +349,8 @@ onUnmounted(() => {
 .hotel__destination__location-name {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 0.2rem;
 }
 
